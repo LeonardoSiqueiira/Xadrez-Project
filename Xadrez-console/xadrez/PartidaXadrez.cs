@@ -126,7 +126,18 @@ namespace xadrez
                 mudaJogador();
             }
 
+            Peca p = tab.peca(destino);
             
+            // JOGADA ESPECIAL EN PASSANT
+
+            if (p is Peao && (destino.linha == origem.linha -2 || destino.linha == origem.linha +2))
+            {
+                vulneravelEnPassant = p;
+            } else
+            {
+                vulneravelEnPassant = null;
+            }
+
         }
 
         public void validarPosicaodeOrigem(Posicao pos)
